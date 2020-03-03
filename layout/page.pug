@@ -9,8 +9,8 @@ block content
       .tag-cloud-tags!= tagcloud({min_font: 20, max_font: 43, amount: 200, color: true, start_color: '#A4D8FA', end_color: '#0790E8'})
       if page.comments !== false
         include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/aside.pug
+    //- #aside_content.aside_content
+    //-   include includes/aside.pug
 
   else if page.type === 'link'
     include flink.pug
@@ -18,6 +18,7 @@ block content
         include includes/comments/index.pug
     #aside_content.aside_content
       include includes/aside.pug
+
   else if page.type === 'categories'    
     #post-content.category-content
       .category-lists
@@ -27,8 +28,28 @@ block content
         div!= list_categories()
       if page.comments !== false
         include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/aside.pug
+    //- #aside_content.aside_content
+    //-   include includes/aside.pug
+
+  //- games page
+  //- - var games = [
+  //-   {
+  //-     title: '',
+  //-     url: '',
+  //-   }
+  //- ]
+  //- else if page.type === 'games'
+  //-   each game, index in games
+  //-     if index % 2 == 0
+  //-       .card-item.card-left
+  //-         a(href=game.url)
+  //-           img.post_bg.lozad(data-src=`${post_cover}` onerror=`onerror=null;src='${theme.lodding_bg.post_page}'` title=article.title || _p('no_title'))
+  //-     else
+  //-       .card-item.card-right
+  //-         a(href=game.url)
+  //-     .card-item-game= game.title
+  //-       a(href=url_for(link) title=article.title || _p('no_title'))= article.title || _p('no_title')
+
   else
     article#page
       h1= page.title
@@ -36,5 +57,5 @@ block content
       include includes/pagination.pug
       if page.comments !== false
         include includes/comments/index.pug
-    #aside_content.aside_content
-      include includes/aside.pug
+    //- #aside_content.aside_content
+    //-   include includes/aside.pug
