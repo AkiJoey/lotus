@@ -19,7 +19,7 @@ block content
     #aside_content.aside_content
       include includes/aside.pug
 
-  else if page.type === 'categories'    
+  else if page.type === 'categories'
     #post-content.category-content
       .category-lists
         .category__title= _p('page.category')
@@ -32,23 +32,21 @@ block content
     //-   include includes/aside.pug
 
   //- games page
-  //- - var games = [
-  //-   {
-  //-     title: '',
-  //-     url: '',
-  //-   }
-  //- ]
-  //- else if page.type === 'games'
-  //-   each game, index in games
-  //-     if index % 2 == 0
-  //-       .card-item.card-left
-  //-         a(href=game.url)
-  //-           img.post_bg.lozad(data-src=`${post_cover}` onerror=`onerror=null;src='${theme.lodding_bg.post_page}'` title=article.title || _p('no_title'))
-  //-     else
-  //-       .card-item.card-right
-  //-         a(href=game.url)
-  //-     .card-item-game= game.title
-  //-       a(href=url_for(link) title=article.title || _p('no_title'))= article.title || _p('no_title')
+  else if page.type === 'games'
+    each game, index in games
+      a(href=url_for(game.path))
+        img.post_bg.lozad(data-src='/img/page_img/' + game.title + '.png' title=game.title)
+      //- .card-item
+      //-   if index % 2 == 0
+      //-     .card-img.card-left
+      //-       a(href=url_for(game.path))
+      //-         img.post_bg.lozad(data-src='/img/page_img/' + game.title + '.png' title=game.title)
+      //-   else
+      //-     .card-img.card-right
+      //-       a(href=url_for(game.path))
+      //-         img.post_bg.lozad(data-src='/img/page_img/' + game.title + '.png' title=game.title)
+      //-   .card-info
+      //-     a(href=url_for(game.path) title=game.title)= game.title
 
   else
     article#page
