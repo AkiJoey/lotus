@@ -1,0 +1,29 @@
+{
+  "name": "lotus",
+  "version": "0.0.1",
+  "description": "A fantastic hexo theme.",
+  "scripts": {
+    "lint": "eslint .",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akijoey/lotus.git"
+  },
+  "keywords": [
+    "hexo"
+  ],
+  "author": "AkiJoey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akijoey/lotus/issues"
+  },
+  "homepage": "https://github.com/akijoey/lotus#readme",
+  "devDependencies": {
+    "eslint": "^7.7.0",
+    "eslint-config-prettier": "^6.11.0",
+    "prettier": "^2.0.5",
+    "stylelint": "^13.6.1",
+    "stylelint-config-prettier": "^8.0.2"
+  }
+}

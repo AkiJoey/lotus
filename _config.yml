@@ -109,12 +109,10 @@ google_analytics:
 
 
 # stylesheets loaded in the <head>
-# ---------------
 stylesheets:
-  - /css/index.css
+  - /css/main.css
 
 # scripts loaded in the end of the body
-# ---------------
 scripts:
   - /js/utils.js
   - /js/main.js
@@ -132,6 +130,8 @@ cdn:
     fancybox: https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js
     js-cookies: https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js
     lozy: https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js
+    ribbon: https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/js/piao.js
+    click: https://blog-static.cnblogs.com/files/axqa/cursor-effects.js
 
 
 # Post info settings
@@ -218,18 +218,11 @@ disqus:
   # enable: false
   # uid:
 
-# gitment
-  # enable: false
-  # owner: 
-  # repo: 
-  # client_id: 
-  # client_secret: 
-
 gitalk:
   enable: true
   client_id: a36f6f4ee43cbac6cd85
   client_secret: 44410c83e1a76e86ba4712d73b3d97e7b55ae533
-  repo: AkiJoey.github.io
+  repo: akiJoey.github.io
   owner: AkiJoey
   admin: AkiJoey
 ####   Using this js for redirect to gitalk container after login
@@ -252,11 +245,6 @@ valine:
 # Footer Settings
 # ---------------
 since: 2018
-
-footer_custom_text:
-
-footer_copyright:
-  enable: true
 
 ICP:
   enable: false
@@ -373,9 +361,6 @@ hr:
 # 主頁subtitle
 subtitle: 
   enable: true
-#  sub1: printf(&#38;unix["&#92;040%six&#92;x0a&#92;0"],(unix)["have"]+"fun"-0x60)&#59;
-#  sub1: May the flames guide thee.
-#  sub2: 貴方に炎の導きのあらんことを.
   sub1: OUT OF THE LIGHT
   sub2: INTO THE SHADOWS
 

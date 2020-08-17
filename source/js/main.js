@@ -4,7 +4,7 @@ $(function () {
       $(".layout_post").animate({}, function () {
         {
           setTimeout(function () {
-            $('#page-header').addClass('open-sidebar')
+            $('nav').addClass('open-sidebar')
             $("#toggle-sidebar").addClass('on')
             $('body').animate({
               paddingLeft: 300
@@ -40,7 +40,7 @@ $(function () {
       var isOpen = $(this).hasClass('on')
       isOpen ? $(this).removeClass('on') : $(this).addClass('on')
       if (isOpen) {
-        $('#page-header').removeClass('open-sidebar')
+        $('nav').removeClass('open-sidebar')
         $('body').animate({
           paddingLeft: 0
         }, 200)
@@ -59,7 +59,7 @@ $(function () {
         })
 
       } else {
-        $('#page-header').addClass('open-sidebar')
+        $('nav').addClass('open-sidebar')
         $('body').animate({
           paddingLeft: 300
         }, 200)
@@ -87,7 +87,7 @@ $(function () {
 
   //---------------------------------------------------------------------------------------------------------
   
-  $(".scroll-down").on("click", function () {
+  $("#header-down").on("click", function () {
 
     scrollTo('#content-outer')
 
@@ -312,13 +312,13 @@ $(function () {
 
     if ($(".toggle-menu").hasClass("open")) {
       $(".toggle-menu").removeClass("open").addClass("close");
-      $("#page-header #site-name,#page-header .search").css({'color':'#3b3a3a','text-shadow': 'none'})
+      $("nav #site-name,nav .search").css({'color':'#3b3a3a','text-shadow': 'none'})
       $(".toggle-menu *").css({ 'background-color': '#3b3a3a', 'text-shadow': 'none' });
       $('body').addClass("is_hidden");
       $('.menus').addClass("menu_open");
     } else {
       $(".toggle-menu").removeClass("close").addClass("open");
-      $("#page-header #site-name,#page-header .search").css({ 'color': '', 'text-shadow': '' });
+      $("nav #site-name,nav .search").css({ 'color': '', 'text-shadow': '' });
       $(".toggle-menu *").css({ 'background-color': '', 'text-shadow': '' });
       $('body').removeClass("is_hidden");
       $('.menus').removeClass("menu_open").addClass('menu_close');
@@ -370,7 +370,7 @@ $(function () {
     if (!$('.toggle-menu').is(':visible')) {
       if ($(".toggle-menu").hasClass("close")) {
       $(".toggle-menu").removeClass("close").addClass("open");
-      $("#page-header #site-name,#page-header .search").css({ 'color': '', 'text-shadow': '' });
+      $("nav #site-name,nav .search").css({ 'color': '', 'text-shadow': '' });
       $(".toggle-menu *").css({ 'background-color': '', 'text-shadow': '' });
       $('body').removeClass("is_hidden");
         $('.menus').removeClass("menu_open");
@@ -398,11 +398,11 @@ $(function () {
       if (currentTop > 56) {
         
         if (isUp) {
-          $('#page-header').hasClass('visible') ? $('#page-header').removeClass('visible') : console.log()
+          $('nav').hasClass('visible') ? $('nav').removeClass('visible') : console.log()
         } else {
-          $('#page-header').hasClass('visible') ? console.log() : $('#page-header').addClass('visible')
+          $('nav').hasClass('visible') ? console.log() : $('nav').addClass('visible')
         }
-        $('#page-header').addClass('fixed')
+        $('nav').addClass('fixed')
         if ($('#go-up').css('opacity') === '0') {
 
           $('#go-up').animate({}, function () {
@@ -425,7 +425,7 @@ $(function () {
 
       } else {
         if (currentTop === 0) {
-          $('#page-header').removeClass('fixed').removeClass('visible')
+          $('nav').removeClass('fixed').removeClass('visible')
         }
 
         $('#go-up').animate({}, function () {

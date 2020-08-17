@@ -1,0 +1,217 @@
+#aside_content
+  width: 25%
+
+  .card_widget
+    -webkit-box-shadow: 0 4px 8px 6px rgba(7,17,27,.06)
+    box-shadow: 0 4px 8px 6px rgba(7,17,27,.06)
+    border-radius: 8px
+    -webkit-transition: all .3s
+    -moz-transition: all .3s
+    -o-transition: all .3s
+    -ms-transition: all .3s
+    transition: all .3s
+    background: #fff
+    margin-top: 20px
+    margin-left: 15px
+    overflow: hidden
+
+    &:hover
+      -webkit-box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15)
+      box-shadow: 0 4px 12px 12px rgba(7,17,27,0.15)
+
+  .card-author
+    img
+      height: 128px
+      width: 128px
+      display: inline-block
+      vertical-align: top
+      border-radius: 70px
+      transition: all .25s
+
+      &:hover
+        border-radius: 20px
+        -moz-transform: scale(1.1)
+        -o-transform: scale(1.1)
+        -webkit-transform: scale(1.1)
+        transform: scale(1.1)
+    .author-info
+      &__name
+        font-size: 1.1rem
+        display: block
+        margin: -0.1rem auto
+        font-weight: 500
+
+      &__description
+        display: block
+        margin: -0.1rem auto
+
+    .data_link 
+      a
+        text-decoration: none
+
+      .length_num 
+        font-size: 1rem
+        color: #000
+        margin-bottom: 0
+
+      .headline 
+        display: block
+        font-size: 0.7rem
+        letter-spacing: 1px
+        margin-bottom: -21px
+        text-transform: uppercase
+        color:#4c4948
+
+    #aside-social-icons
+      margin: 0.1rem auto -0.7rem
+      width: 15rem
+      text-align: center
+
+      .social-icon 
+        margin: 0 0.5rem
+        color: #4c4948
+        text-shadow: 0.1rem 0.1rem 0.2rem rgba(0,0,0,0.15)
+        font-size: 1rem
+        cursor: pointer
+      
+      i
+        transition: all 0.05s
+        
+        &:hover
+          -moz-transform: scale(1.3)
+          -o-transform: scale(1.3)
+          -webkit-transform: scale(1.3)
+          transform: scale(1.3)
+      
+
+
+  .card-content 
+    padding: 1rem 1.2rem
+  
+  .post_data
+    display: flex
+
+  .data-item
+    flex-grow: 1
+    align-items: center
+    flex-basis: auto
+    justify-content: center
+
+
+  .item_headline 
+    font-size: 0.8rem
+    
+    span 
+      margin-left: 10px
+
+  .card-tag-cloud a
+    text-decoration: none
+    position: relative
+    padding-bottom: 0.3rem
+    word-break: keep-all
+
+    &::after
+      position: absolute
+      bottom: 0
+      left: 0
+      z-index: -1
+      width: 0
+      height: 3px
+      background-color: lighten($theme-color, 30%)
+      content: ""
+      transition: all 0.3s ease-in-out
+
+    &:hover
+      color: $light-blue !important
+
+      &::after
+        width: 100%
+
+
+  .aside_category_item,.archive-list
+    list-style: none
+    margin-bottom: -3px
+    margin-block-start: 0.2rem
+  
+  .aside_category_item.child
+    margin-bottom: -3px
+    margin-block-start: 0rem
+
+    .aside_category_list
+      margin-left: -50px
+
+  .aside_category_list,.archive-list-item
+    margin-left: -40px
+    padding: 0.2rem 1rem
+
+    &:hover
+      background-color: $light-blue
+      color: #363636
+    a
+      text-decoration: none
+      color: #4c4948
+  
+  .aside_category_list_name,.archive-list-link
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    flex: auto
+
+  .aside_category_list_link,.archive-list-item
+    display: flex
+  
+
+
+
+  .aside_category_list_length,.archive-list-count
+    float: right 
+  
+  .card-archives
+    margin-bottom: 20px
+
+  .card-announcement-animation
+    animation: announ_animation 1.5s infinite
+  
+  .card-webinfo
+    .webinfo
+      padding: 0.2rem 1rem
+
+      .webinfo_item
+        display: block
+        padding: 4px 0 0
+
+        .webinfo_article_name,
+        .webinfo_runtime_name,
+        .webinfo_site_uv_name,
+        .webinfo_site_name
+          display: inline-block
+        
+        .webinfo_article_count,
+        .webinfo_runtime_count,
+        .webinfo_site_uv_count,
+        .webinfo_site_pv_count
+          float: right
+          display: inline-block
+
+
+@keyframes announ_animation{
+  0%,to{
+    color: #4c4948
+}
+  50%{
+    color: #FF0000
+    }
+    }
+
+
+@media screen and (max-width: 900px) 
+  .layout_page
+    flex-direction: column
+  
+  #recent-posts,#aside_content
+    width: 100% !important
+  
+  .card_widget
+    margin-left: 0 !important
+
+

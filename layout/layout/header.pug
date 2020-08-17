@@ -1,0 +1,83 @@
+if (is_archive())
+  - var top_img = theme.archive_img ||theme.top_img || config.top_img
+else
+  - var top_img = page.top_img||theme.top_img || config.top_img
+
+- var bg_img = top_img && top_img !== true ? `background-image: url(${top_img})` : ''
+
+
+if (is_post())
+  if (page.toc != false && theme.toc.enable)
+    i.fa.fa-arrow-right#toggle-sidebar(aria-hidden="true")
+    include ../partial/sidebar.pug
+
+  - var top_img =  page.top_img || page.cover || theme.post_meta.top_img || theme.post_img || theme.top_img || config.top_img
+  - var bg_img = top_img !== true ? `background-image: url(${top_img})` : ''
+  div#top-container(style=bg_img)
+    include nav.pug
+    #post-info
+      #post-title
+          .posttitle=page.title || _p('no_title')
+      #post-meta
+        if (theme.post_meta.date_type)
+          if (theme.post_meta.date_type === 'both')
+            time.post-meta__date
+              i.fa.fa-calendar(aria-hidden="true")
+              =' '+_p('post.created')+' '+date(page.date, config.date_format)
+              span.post-meta__separator |
+              i.fa.fa-history(aria-hidden="true")
+              =' '+_p('post.updated')+' '+date(page.updated, config.date_format)
+          else
+            - var date_type = theme.post_meta.date_type === 'updated' ? 'updated' : 'date'
+            time.post-meta__date #[i.fa.fa-calendar(aria-hidden="true")] #[=date(page[date_type], config.date_format)]
+                  
+        if (theme.post_meta.categories && page.categories.data.length > 0)
+          if (theme.post_meta.date_type)
+            span.post-meta__separator.mobile_hidden |
+          span.mobile_hidden
+            each item, index in page.categories.data
+              i.fa.fa-inbox.post-meta__icon(aria-hidden="true")
+              a(href=url_for(item.path)).post-meta__categories #[=item.name]
+              if (index < page.categories.data.length - 1)
+                i.fa.fa-angle-right(aria-hidden="true")
+        if (theme.wordcount && theme.wordcount.enable)
+          .post-meta-wordcount
+            span= _p('post.wordcount') + ': '
+            span.word-count= wordcount(page.content)
+            span.post-meta__separator |
+            span= _p('post.min2read', min2read(page.content, {cn: 350, en: 160}))
+            if theme.busuanzi.page_pv
+              span.post-meta__separator |
+              span= _p('post.page_pv') + ': '
+              span#busuanzi_value_page_pv
+
+
+if is_home()
+  header.full_page(style=bg_img)
+    include nav.pug
+    canvas#rain(style='display:block;width:100%;height:100%;')
+    #site-info
+      #site-title
+        - var title = page.title || config.title
+        each char in title
+          span.glitch(data-text=char)= char
+
+      #site-sub-title
+        span.subtitle
+
+      if(theme.social)
+        #site-social-icons
+          each url, icon in theme.social
+            a.social-icon(href=url target="_blank")
+              i(class=icon)
+
+    #header-down
+      i.fa.fa-angle-down
+
+else if (!is_post())
+  header.bg_local(style=bg_img)
+    include nav.pug
+    #page_site-info
+      #site-title
+        - var title = is_archive() ? _p('archives') : page.title || page.tag || page.category || config.title
+        span.blogtitle= title

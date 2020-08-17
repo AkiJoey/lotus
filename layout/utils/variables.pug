@@ -1,0 +1,21 @@
+-
+  //- title
+  var title = page.title || config.title || ''
+  if (is_archive())
+    title = _p('page.archives')
+  else if (is_tag())
+    title = _p('page.tag') + ': ' + page.tag
+  else if (is_category())
+    title = _p('page.category') + ': ' + page.category
+  else if (is_month())
+    title += ': ' + page.month + '/' + page.year
+  else if (is_year())
+    title += ': ' + page.year
+  else if (is_current('/404.html', [strict]))
+    title = _p('error404.error_title')
+
+  //- information
+  var description = page.description || page.title || config.description || ''
+  var keywords = (page.tags && page.tags.data) ? page.tags.data.map(function(tag) {return tag.name;}).join(',') : (config.keywords || []).join(',')
+  var author = config.email ? config.author + ',' + config.email : config.author
+  var copyright = config.copyright || config.author
